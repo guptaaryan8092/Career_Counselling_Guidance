@@ -1,0 +1,123 @@
+/* General Styles */
+
+* {
+  box-sizing: border-box;
+  font-family: 'poppins' , sans-serif;
+  text-decoration: none;
+}
+
+/* Header style part---------------------------------*/
+.pathfinder {
+  font-weight: 700; /* Bold */
+  text-transform: uppercase; /* Optional: uppercase for emphasis */
+  margin: 0; /* Remove default margin */
+  padding: 0px 0px 1px 0px; /* Add padding for spacing */
+  text-shadow: 2px 2px 9px rgba(56, 208, 168, 0.6); /* Optional: shadow for contrast */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.pathfinder:hover {
+  transform: scale(1.05); /* Slightly increase size on hover */
+  color: #5bb7ca; /* Change color on hover, adjust as needed */
+}
+
+.intro-mission-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+}
+
+.intro-mission-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* header transitions*/
+.intro-mission-section {
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  padding: 80px 10px;
+  background: url('./assets/img/Body_background/background1.svg');
+  background-size :cover;
+  background-position: center;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-mission-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  /*filter: blur(2px);  Adjust the blur amount here */
+  z-index: 0;
+}
+
+
+.intro-mission-section h1, 
+.intro-mission-section h2, 
+.intro-mission-section h3,
+.intro-mission-section p {
+
+  transform: translateY(20px) scale(0.95);
+  animation: slideUp 1s ease-in-out forwards, scaleUp 1s ease-in-out forwards;
+}
+
+.intro-mission-section h1 {
+  font-size: 6.5rem;
+  color: #5bca6a;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  animation-delay: 0.2s, 0.2s;
+}
+
+.intro-mission-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color:#a76128 ;
+  margin: 20px 0;
+  animation-delay: 0.4s, 0.4s;
+  animation: fadeInUp 1.5s ease-out;
+  transition: transform 0.3s ease;
+}
+.intro-mission-section h3 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  color:#36a6b2 ;
+  margin: 20px 0;
+  animation-delay: 0.4s, 0.4s;
+  animation: fadeInUp 1.5s ease-out;
+  transition: transform 0.3s ease;
+}
+
+
+
+
+/* Hr tag*/
+hr.custom-hr {
+  border: 0; /* Remove default border */
+  height: 2px; /* Set height of the line */
+  background: #2f00ff; /* Color of the line */
+  width: 50%; /* Shorten the width of the line */
+  margin: 20px auto; /* Center the line horizontally and add vertical spacing */
+  border-radius: 5px; /* Optional: add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow for a subtle 3D effect */
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+hr.custom-hr:hover {
+  background: #ff9900; /* Change color on hover, adjust as needed */
+}
+
+/*--------------------------Header completed------------------------*/
+/*-------------Navbar-----------------------------------*/
