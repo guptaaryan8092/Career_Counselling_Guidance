@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -17,6 +16,10 @@ export default function Header() {
 
     const closeDropdown = () => {
         setIsDropdownOpen(false);
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
     };
 
     useEffect(() => {
@@ -81,6 +84,7 @@ export default function Header() {
                                             isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
+                                    onClick={closeMobileMenu} // Close menu on click
                                 >
                                     Home
                                 </NavLink>
@@ -93,6 +97,7 @@ export default function Header() {
                                             isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
+                                    onClick={closeMobileMenu} // Close menu on click
                                 >
                                     About
                                 </NavLink>
@@ -105,6 +110,7 @@ export default function Header() {
                                             isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
+                                    onClick={closeMobileMenu} // Close menu on click
                                 >
                                     Test
                                 </NavLink>
@@ -142,7 +148,7 @@ export default function Header() {
                                                         isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={closeDropdown}
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
                                             >
                                                 AI Guidance
                                             </NavLink>
@@ -155,7 +161,7 @@ export default function Header() {
                                                         isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={closeDropdown}
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
                                             >
                                                 Mentorship
                                             </NavLink>
@@ -168,7 +174,7 @@ export default function Header() {
                                                         isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={closeDropdown}
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
                                             >
                                                 Roadmap
                                             </NavLink>
@@ -184,6 +190,7 @@ export default function Header() {
                                             isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
+                                    onClick={closeMobileMenu} // Close menu on click
                                 >
                                     Recreation
                                 </NavLink>
@@ -196,6 +203,7 @@ export default function Header() {
                                             isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
+                                    onClick={closeMobileMenu} // Close menu on click
                                 >
                                     Contact
                                 </NavLink>
