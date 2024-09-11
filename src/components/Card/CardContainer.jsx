@@ -23,7 +23,7 @@ function CardContainer() {
                 heading="Higher Secondary (11-12)"
                 description="This section covers the higher secondary education curriculum for grades 11 and 12."
                 readMoreLink="/higher-secondary"
-                takeTestLink="/src/components/Test/Test.jsx"
+                takeTestLink="/test"
             />
         </div>
     );
