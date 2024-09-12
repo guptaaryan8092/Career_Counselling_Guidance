@@ -18,10 +18,10 @@ function Footer() {
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-lime-700">Resources</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <link href="/test" class="hover:underline">Test</link>
+                          <a href="/test" class="hover:underline">Test</a>
                       </li>
                       <li>
-                          <link href="/roadmap" class="hover:underline">Roadmap</link>
+                          <a href="/roadmap" class="hover:underline">Roadmap</a>
                       </li>
                   </ul>
               </div>
