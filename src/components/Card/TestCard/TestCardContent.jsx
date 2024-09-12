@@ -9,7 +9,6 @@ const TestCardContent = ({ handleReadMore }) => {
         <p className="mt-2 text-lg text-gray-700 px-4 sm:px-6 lg:px-8">
           Discover your strengths and preferences with our diverse tests. Psychometric, Career Aptitude, and Personality assessments offer insights into your abilities and interests, helping you align your education and career path for a successful future.
         </p>
-        
       </div>
       <div className="flex flex-wrap justify-center gap-6">
         <TestCard
