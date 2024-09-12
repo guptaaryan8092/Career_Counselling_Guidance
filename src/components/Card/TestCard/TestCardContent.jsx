@@ -1,5 +1,5 @@
 import React from 'react';
-import TestCard from './Testcard';
+import TestCard from './TestCard';
 
 const TestCardContent = ({ handleReadMore }) => {
   return (
