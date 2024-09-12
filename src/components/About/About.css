@@ -1,0 +1,8 @@
+/* Custom styles for the react-responsive-carousel indicators */
+.carousel .control-dots .dot {
+    background-color: #74b9ff; /* Customize the color of the inactive dots */
+  }
+  
+  .carousel .control-dots .dot.selected {
+    background-color: #55efc4; /* Customize the color of the active dot */
+  }
