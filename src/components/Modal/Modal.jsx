@@ -4,11 +4,16 @@ const Modal = ({ isOpen, onClose, content }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-lg shadow-lg p-6 relative max-w-lg w-full mx-4 max-h-[80vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+    onClick={onClose}  // Close on overlay click
+    >
+        
+      <div className="bg-white rounded-lg shadow-lg p-6 relative max-w-lg w-full mx-4 max-h-[80vh] overflow-y-auto"
+      onClick={(e) => e.stopPropagation()}  // Prevent click inside content from closing
+      >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 p-2 text-gray-600 hover:text-gray-900"
+          className="absolute top-2 right-2 p-2 text-yellow-400 hover:text-gray-900"
         >
           <svg
             className="w-6 h-6"
