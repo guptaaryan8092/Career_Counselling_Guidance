@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import EducationalCard from './EducationalCard';
 import Modal from '../Modal/Modal';
+import { Link } from 'react-router-dom';
+
 
 const CardContainer = () => {
     const [isOpen, setIsOpen] = useState(false);

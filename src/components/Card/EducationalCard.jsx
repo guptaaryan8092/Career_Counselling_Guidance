@@ -1,4 +1,5 @@
 // src/components/Card/EducationalCard.jsx
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLink }) => {
