@@ -1,5 +1,5 @@
 import React from 'react';
-import { CarouselCustomNavigation } from '../CarouselCustomNavigation/CarouselCustomNavigation.jsx'; // Update the path if needed
+import  CarouselCustomNavigation  from '../CarouselCustomNavigation/CarouselCustomNavigation.jsx'; // Update the path if needed
 import CardContainer from '../Card/CardContainer.jsx';
 
 function Home() {

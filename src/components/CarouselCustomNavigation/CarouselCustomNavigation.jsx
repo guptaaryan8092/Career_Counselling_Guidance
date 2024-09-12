@@ -1,44 +1,71 @@
-import { Carousel } from "@material-tailwind/react";
+import React, { useState } from 'react';
 
-export function CarouselCustomNavigation() {
+const CarouselCustomNavigation = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const slides = [
+    '/assets/img/s1.jpg',
+    '/assets/img/s2.jpg',
+    '/assets/img/s3.jpg',
+    '/assets/img/s1.jpg'
+  ];
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+  };
+
   return (
-    <Carousel
-      className="rounded-xl"
-      navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-          {new Array(length).fill("").map((_, i) => (
-            <span
-              key={i}
-              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-              }`}
-              onClick={() => setActiveIndex(i)}
-            />
+    <div className="relative w-full max-w-screen-lg mx-auto">
+      <div className="relative overflow-hidden">
+        <div
+          className="flex transition-transform duration-500"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div key={index} className="w-full flex-shrink-0">
+              <img
+                src={slide}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-auto object-cover carousel-image"
+              />
+            </div>
           ))}
         </div>
-      )}
-      slideInterval={5000} // Adjust the interval for slide transition if needed
-    >
-      <img
-        src="/assets/img/s1.jpg"  // Update this path to your local image
-        alt="Slide 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="/assets/img/s2.jpg"  // Update this path to your local image
-        alt="Slide 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="/assets/img/s3.jpg"  // Update this path to your local image
-        alt="Slide 3"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="/assets/img/s3.jpg"  // Update this path to your local image
-        alt="Slide 4"
-        className="h-full w-full object-cover"
-      />
-    </Carousel>
+        <button
+          onClick={goToPrevious}
+          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-200 text-gray-600 p-2 rounded-full hover:bg-gray-300"
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={goToNext}
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-200 text-gray-600 p-2 rounded-full hover:bg-gray-300"
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
   );
-}
+};
+
+export default CarouselCustomNavigation;
