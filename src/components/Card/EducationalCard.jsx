@@ -2,13 +2,14 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLink }) => {
+const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLink, bgColor }) => {
   return (
     <div className="w-full max-w-xs rounded-md border shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
       <img
         src={imgSrc}
         alt={heading}
         className="h-[200px] w-full rounded-md object-cover bg-gray-500"
+        style={{ backgroundColor: bgColor }}
       />
       <div className="p-4">
         <h1 className="text-lg font-semibold">{heading}</h1>

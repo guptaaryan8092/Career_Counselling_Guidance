@@ -10,9 +10,9 @@ function Recreation() {
         {/* Activities */}
         <div className="flex flex-wrap justify-center">
           {/* Co-Curricular Activities */}
-          <div className="bg-gradient-to-br from-white via-gray-50 to-gray-200 rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-sm text-center transition-transform transform hover:translate-y-[-10px] hover:shadow-xl">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-xs text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
             <div className="relative w-full h-48 overflow-hidden">
-              <img src="/assets/img/resource/cocurr.svg" alt="Co-Curricular Activities" className="w-full h-full object-cover" />
+              <img src="/assets/img/resource/cocurr.svg" alt="Co-Curricular Activities" className="w-full h-full object-cover bg-red-400" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-purple-700 mb-4">Co-Curricular Activities</h3>
@@ -23,9 +23,9 @@ function Recreation() {
           </div>
 
           {/* Freelancing */}
-          <div className="bg-gradient-to-br from-white via-gray-50 to-gray-200 rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-sm text-center transition-transform transform hover:translate-y-[-10px] hover:shadow-xl">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-xs text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
             <div className="relative w-full h-48 overflow-hidden">
-              <img src="/assets/img/resource/freelance.svg" alt="Freelancing" className="w-full h-full object-cover" />
+              <img src="/assets/img/resource/freelance.svg" alt="Freelancing" className="w-full h-full object-cover bg-cyan-600" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-purple-700 mb-4">Freelancing</h3>
@@ -36,9 +36,9 @@ function Recreation() {
           </div>
 
           {/* Health */}
-          <div className="bg-gradient-to-br from-white via-gray-50 to-gray-200 rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-sm text-center transition-transform transform hover:translate-y-[-10px] hover:shadow-xl">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden mx-4 mb-8 max-w-xs text-center transition-transform transform hover:scale-105 hover:shadow-2xl">
             <div className="relative w-full h-48 overflow-hidden">
-              <img src="/assets/img/resource/health.svg" alt="Health" className="w-full h-full object-cover" />
+              <img src="/assets/img/resource/health.svg" alt="Health" className="w-full h-full object-cover bg-green-600" />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-purple-700 mb-4">Health</h3>

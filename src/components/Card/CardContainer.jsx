@@ -116,12 +116,13 @@ const CardContainer = () => {
 
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
-      <EducationalCard
+      <EducationalCard 
         imgSrc="/assets/img/class/1.svg"
         heading="Primary (1-5)"
         description="This section covers the primary education curriculum for grades 1 through 5."
         onReadMore={() => handleReadMore(primaryContent)}
         takeTestLink="/test"
+        bgColor='#F5F5DC'
       />
       <EducationalCard
         imgSrc="/assets/img/class/2.svg"
@@ -129,6 +130,7 @@ const CardContainer = () => {
         description="This section covers the secondary education curriculum for grades 6 through 10."
         onReadMore={() => handleReadMore(secondaryContent)}
         takeTestLink="/test"
+        bgColor='#C7B8EA'
       />
       <EducationalCard
         imgSrc="/assets/img/class/3.svg"
@@ -136,6 +138,7 @@ const CardContainer = () => {
         description="This section covers the higher secondary education curriculum for grades 11 and 12."
         onReadMore={() => handleReadMore(higherSecondaryContent)}
         takeTestLink="/test"
+        bgColor='#B2FFFC'
       />
 
       
