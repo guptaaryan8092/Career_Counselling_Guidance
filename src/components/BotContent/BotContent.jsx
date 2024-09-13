@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+{/*
+    import React, { useEffect } from 'react';
 import './botStyle.css';
 
 function BotContent() {
@@ -49,3 +50,5 @@ function BotContent() {
 }
 
 export default BotContent;
+
+*/}

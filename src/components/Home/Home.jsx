@@ -1,7 +1,7 @@
 import React from 'react';
 import  CarouselCustomNavigation  from '../CarouselCustomNavigation/CarouselCustomNavigation.jsx'; // Update the path if needed
 import CardContainer from '../Card/CardContainer.jsx';
-import BotContent from '../BotContent/BotContent.jsx';
+// import BotContent from '../BotContent/BotContent.jsx';
 
 function Home() {
   return (
@@ -15,10 +15,6 @@ function Home() {
         <CarouselCustomNavigation />
         <CardContainer/>
       </div>
-      <div>
-      <BotContent/>
-      </div>
-      
     </div>
   );
 }
