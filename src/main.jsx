@@ -13,7 +13,7 @@ import Roadmap from './components/Roadmap/Roadmap.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Recreation from './components/Recreation/Recreation.jsx'
 import  Login  from './components/Account/Login.jsx'
-
+import Botscript from './Botscript';
 
 
 // const router = createBrowserRouter ([
@@ -51,5 +51,6 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>
+    <Botscript />
   </StrictMode>
 )

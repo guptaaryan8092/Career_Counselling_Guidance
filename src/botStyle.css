@@ -1,0 +1,63 @@
+
+      /* Custom styles */
+      .animated-character-container {
+        position: fixed;
+        bottom: 80px; /* Adjust based on your preference */
+        right: 20px;
+        width: 120px; /* Adjust size */
+        height: auto;
+        z-index: 9999;
+        text-align: right;
+      }
+  
+      .animated-character {
+        width: 100px; /* Adjust size */
+        height: auto;
+        animation: float 2s ease-in-out infinite;
+      }
+  
+      .close-btn {
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+      }
+  
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-10px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+  
+      /* Additional styling for Botpress icon if needed */
+      .bp-webchat-button {
+        animation: shake 1s infinite;
+      }
+  
+      @keyframes shake {
+        0%, 100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+    
