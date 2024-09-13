@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './botStyle.css'
 
 function Botscript() {
   useEffect(() => {
