@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+{/*
+  import React, { useEffect } from 'react';
 
 function Botscript() {
   useEffect(() => {
@@ -43,4 +44,7 @@ function Botscript() {
   );
 }
 
-export default Botscript;
+export default Botscript;  
+  
+*/}
+

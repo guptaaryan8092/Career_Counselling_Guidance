@@ -8,9 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/src/botStyle.css">
     
+    
   </head>
   <body>
-    
+    <!-- Your page content -->
+
+  <!-- Animated Character -->
+  <div class="animated-character-container" id="animatedCharacterContainer">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <img src="/assets/img/BotDesign/bot1.svg" alt="Animated Character" class="animated-character">
+  </div>
+     <!-- Botpress Webchat Scripts -->
+  <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+  <script src="https://mediafiles.botpress.cloud/d4201ab2-cd92-479f-b295-fb3fe9120448/webchat/v2.1/config.js"></script>
+
+  <script>
+    // JavaScript to hide the animated character on close button click
+    document.addEventListener("DOMContentLoaded", function() {
+      const closeBtn = document.getElementById("closeBtn");
+      const animatedCharacterContainer = document.getElementById("animatedCharacterContainer");
+
+      if (closeBtn && animatedCharacterContainer) {
+        closeBtn.addEventListener("click", function() {
+          animatedCharacterContainer.style.display = "none";
+        });
+      }
+    });
+  </script>
     
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
