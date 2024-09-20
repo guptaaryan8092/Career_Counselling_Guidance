@@ -1,3 +1,4 @@
+// Read More page in Home page.
 import React from 'react';
 
 const Modal = ({ isOpen, onClose, content }) => {
