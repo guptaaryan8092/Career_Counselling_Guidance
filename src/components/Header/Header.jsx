@@ -5,6 +5,7 @@ export default function Header() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [navbarOpacity, setNavbarOpacity] = useState(1);
+    const [blurEffect, setBlurEffect] = useState(0); // New state for blur effect
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -26,7 +27,9 @@ export default function Header() {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const opacity = Math.max(1 - scrollY / 200, 0.5); // Adjust 200 for the fade effect distance
+            const blur = Math.min(10, scrollY / 100); // Adjust for blur effect
             setNavbarOpacity(opacity);
+            setBlurEffect(blur); // Update blur effect
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -39,7 +42,12 @@ export default function Header() {
     return (
         <header className="shadow sticky z-50 top-0" style={{ transition: 'background-color 0.3s ease' }}>
             <nav className="border-gray-200 px-4 lg:px-6 py-0"
-                style={{ backgroundColor: `rgba(0, 183, 255, ${navbarOpacity})` }}
+            style=
+                {{
+                background: `linear-gradient(90deg, rgba(144, 238, 144, ${navbarOpacity}), rgba(60, 179, 113, ${navbarOpacity}))`,
+                backdropFilter: `blur(${blurEffect}px)`,
+                transition: 'background 0.3s ease',
+                }}
             >
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
@@ -56,7 +64,7 @@ export default function Header() {
                         >
                             Login
                         </Link>
-                        
+
                         <button
                             onClick={toggleMobileMenu}
                             className="inline-flex items-center p-2 ml-1 text-sm text-gray-800 rounded-lg lg:hidden hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -70,9 +78,8 @@ export default function Header() {
                         </button>
                     </div>
                     <div
-                        className={`${
-                            isMobileMenuOpen ? "flex" : "hidden"
-                        } flex-col items-center w-full lg:flex lg:w-auto lg:order-1`}
+                        className={`${isMobileMenuOpen ? "flex" : "hidden"
+                            } flex-col items-center w-full lg:flex lg:w-auto lg:order-1`}
                         id="mobile-menu-2"
                     >
                         <ul className="flex flex-col items-center mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
@@ -80,8 +87,7 @@ export default function Header() {
                                 <NavLink
                                     to="/"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                                            isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
                                     onClick={closeMobileMenu} // Close menu on click
@@ -93,8 +99,7 @@ export default function Header() {
                                 <NavLink
                                     to="/about"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                                            isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
                                     onClick={closeMobileMenu} // Close menu on click
@@ -106,8 +111,7 @@ export default function Header() {
                                 <NavLink
                                     to="/test"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                                            isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
                                     onClick={closeMobileMenu} // Close menu on click
@@ -144,8 +148,7 @@ export default function Header() {
                                             <NavLink
                                                 to="/aiguidance"
                                                 className={({ isActive }) =>
-                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${
-                                                        isActive ? "text-orange-700" : "text-gray-800"
+                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
                                                 onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
@@ -157,8 +160,7 @@ export default function Header() {
                                             <NavLink
                                                 to="/mentorship"
                                                 className={({ isActive }) =>
-                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${
-                                                        isActive ? "text-orange-700" : "text-gray-800"
+                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
                                                 onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
@@ -170,8 +172,7 @@ export default function Header() {
                                             <NavLink
                                                 to="/roadmap"
                                                 className={({ isActive }) =>
-                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${
-                                                        isActive ? "text-orange-700" : "text-gray-800"
+                                                    `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
                                                 onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
@@ -186,8 +187,7 @@ export default function Header() {
                                 <NavLink
                                     to="/recreation"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                                            isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
                                     onClick={closeMobileMenu} // Close menu on click
@@ -199,8 +199,7 @@ export default function Header() {
                                 <NavLink
                                     to="/contact"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                                            isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
                                     onClick={closeMobileMenu} // Close menu on click
