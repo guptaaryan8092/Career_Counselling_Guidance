@@ -12,24 +12,9 @@ import Mentorship from './components/Mentorship/Mentorship.jsx'
 import Roadmap from './components/Roadmap/Roadmap.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Recreation from './components/Recreation/Recreation.jsx'
-import  Login  from './components/Account/Login.jsx'
+import Login  from './components/Account/Login.jsx'
 
-
-// const router = createBrowserRouter ([
-//   {path: '/',
-//     element: <Layout/>,
-//     children: [
-//       {
-//         path: "",
-//         element: <Home />
-//       },
-//       {
-//         path: "about",
-//         element: <About />
-//       }
-//     ]
-//   }
-// ])
+// Create the router
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path = '/' element = {<Layout />}>
@@ -42,11 +27,10 @@ const router = createBrowserRouter(
       <Route path='recreation' element ={<Recreation/>}/>
       <Route path='contact' element ={<Contact/>}/>
       <Route path='login' element ={<Login/>}/>
-
     </Route>
   )
-)
-
+);
+// Render the root component
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}>
