@@ -1,8 +1,11 @@
 import React from 'react'
+import RoadmapCardContent from './Card/RoadmapCardContent'
 
 function Roadmap() {
   return (
-    <div>Roadmap</div>
+    <div>
+      <RoadmapCardContent />
+    </div>
   )
 }
 
