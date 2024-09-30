@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [navbarOpacity, setNavbarOpacity] = useState(1);
-    const [blurEffect, setBlurEffect] = useState(0); // New state for blur effect
+    const [blurEffect, setBlurEffect] = useState(0);
+    const dropdownRef = useRef(null); // Create a ref for the dropdown
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -26,27 +27,35 @@ export default function Header() {
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const opacity = Math.max(1 - scrollY / 200, 0.5); // Adjust 200 for the fade effect distance
-            const blur = Math.min(10, scrollY / 100); // Adjust for blur effect
+            const opacity = Math.max(1 - scrollY / 200, 0.5);
+            const blur = Math.min(10, scrollY / 100);
             setNavbarOpacity(opacity);
-            setBlurEffect(blur); // Update blur effect
+            setBlurEffect(blur);
+        };
+
+        const handleClickOutside = (event) => {
+            // Check if the click is outside the dropdown and button
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                closeDropdown();
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
+        document.addEventListener("mousedown", handleClickOutside); // Listen for clicks outside
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("mousedown", handleClickOutside); // Clean up the listener
         };
     }, []);
 
     return (
         <header className="shadow sticky z-50 top-0" style={{ transition: 'background-color 0.3s ease' }}>
             <nav className="border-gray-200 px-4 lg:px-6 py-0"
-            style=
-                {{
-                background: `linear-gradient(90deg, rgba(144, 238, 144, ${navbarOpacity}), rgba(60, 179, 113, ${navbarOpacity}))`,
-                backdropFilter: `blur(${blurEffect}px)`,
-                transition: 'background 0.3s ease',
+                style={{
+                    background: `linear-gradient(90deg, rgba(144, 238, 144, ${navbarOpacity}), rgba(60, 179, 113, ${navbarOpacity}))`,
+                    backdropFilter: `blur(${blurEffect}px)`,
+                    transition: 'background 0.3s ease',
                 }}
             >
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -61,7 +70,9 @@ export default function Header() {
                         <Link
                             to="/login"
                             className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+                            style={{ textDecoration: 'none' }} // Ensure no underline
                         >
+                            
                             Login
                         </Link>
 
@@ -90,7 +101,8 @@ export default function Header() {
                                         `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
-                                    onClick={closeMobileMenu} // Close menu on click
+                                    style={{ textDecoration: 'none' }} // Ensure no underline
+                                    onClick={closeMobileMenu}
                                 >
                                     Home
                                 </NavLink>
@@ -102,7 +114,8 @@ export default function Header() {
                                         `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
-                                    onClick={closeMobileMenu} // Close menu on click
+                                    style={{ textDecoration: 'none' }} // Ensure no underline
+                                    onClick={closeMobileMenu}
                                 >
                                     About
                                 </NavLink>
@@ -114,16 +127,17 @@ export default function Header() {
                                         `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
-                                    onClick={closeMobileMenu} // Close menu on click
+                                    style={{ textDecoration: 'none' }} // Ensure no underline
+                                    onClick={closeMobileMenu}
                                 >
                                     Test
                                 </NavLink>
                             </li>
-                            <li className="relative">
+                            <li className="relative" ref={dropdownRef}>
                                 <button
                                     onClick={toggleDropdown}
                                     className="flex items-center text-gray-800 hover:bg-gray-50 hover:rounded-lg focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-                                    style={{ textDecoration: 'none', backgroundColor: 'transparent' }}
+                                    style={{ textDecoration: 'none' }}
                                 >
                                     Resources
                                     <svg
@@ -143,7 +157,7 @@ export default function Header() {
                                     </svg>
                                 </button>
                                 {isDropdownOpen && (
-                                    <ul className="absolute z-10 w-48 py-2 mt-2 bg-white rounded-md shadow-lg">
+                                    <ul className="absolute z-10 w-48 py-2 mt-2 bg-white rounded-md shadow-lg transition-transform duration-300 transform scale-95 origin-top-right">
                                         <li>
                                             <NavLink
                                                 to="/aiguidance"
@@ -151,7 +165,8 @@ export default function Header() {
                                                     `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
+                                                style={{ textDecoration: 'none' }} // Ensure no underline
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }}
                                             >
                                                 AI Guidance
                                             </NavLink>
@@ -163,7 +178,8 @@ export default function Header() {
                                                     `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
+                                                style={{ textDecoration: 'none' }} // Ensure no underline
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }}
                                             >
                                                 Mentorship
                                             </NavLink>
@@ -175,7 +191,8 @@ export default function Header() {
                                                     `block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 hover:rounded-lg ${isActive ? "text-orange-700" : "text-gray-800"
                                                     } text-base`
                                                 }
-                                                onClick={() => { closeDropdown(); closeMobileMenu(); }} // Close dropdown and menu on click
+                                                style={{ textDecoration: 'none' }} // Ensure no underline
+                                                onClick={() => { closeDropdown(); closeMobileMenu(); }}
                                             >
                                                 Roadmap
                                             </NavLink>
@@ -187,21 +204,25 @@ export default function Header() {
                                 <NavLink
                                     to="/recreation"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
                                         } text-base`
                                     }
-                                    onClick={closeMobileMenu} // Close menu on click
+                                    style={{ textDecoration: 'none' }} // Ensure no underline
+                                    onClick={closeMobileMenu}
                                 >
                                     Recreation
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
+                                   
+
                                     to="/contact"
                                     className={({ isActive }) =>
-                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
-                                        } text-base`
+                                        `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 hover:rounded-lg lg:hover:bg-gray-50 lg:border-0 hover:text-orange-700 lg:p-0 ${isActive ? "text-orange-700" : "text-gray-800"
+                                        } text-base no-underline`
                                     }
+                                    style={{ textDecoration: 'none' }} // Ensure no underline
                                     onClick={closeMobileMenu} // Close menu on click
                                 >
                                     Contact
