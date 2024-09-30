@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const TestCard = ({ imgSrc, heading, description, onReadMore, takeTestLink }) => {
   return (
     <div className="w-full max-w-xs rounded-md border shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
@@ -21,12 +23,12 @@ const TestCard = ({ imgSrc, heading, description, onReadMore, takeTestLink }) =>
             Read More
           </button>
           */}
-          <a
-            href={takeTestLink}
+          <Link
+          to = {takeTestLink}
             className="rounded-sm bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
             Start Test
-          </a>
+          </Link>
         </div>
       </div>
     </div>
