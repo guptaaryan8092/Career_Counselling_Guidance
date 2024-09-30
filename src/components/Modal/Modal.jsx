@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, content }) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 p-2 text-yellow-500 hover:text-gray-900 z-10"
+          className="absolute top-2 right-2 p-2 text-red-600 hover:text-gray-900 z-10"
         >
           <svg
             className="w-6 h-6"
