@@ -27,6 +27,7 @@ const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLin
           <Link
             to={takeTestLink}
             className="rounded-sm bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            style={{ textDecoration: 'none' }} // Ensure no underline
           >
             Take Test
           </Link>
