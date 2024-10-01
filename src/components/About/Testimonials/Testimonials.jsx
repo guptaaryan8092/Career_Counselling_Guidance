@@ -44,25 +44,25 @@ function Testimonials() {
       quote: "This platform has completely changed my perspective on career choices. I feel more confident about my future now.",
       name: "Aryan Gupta",
       role: "Student",
-      image: "public/assets/img/testimonial/1.svg",
+      image: "/assets/img/testimonial/1.svg",
     },
     {
       quote: "The career guidance here is top-notch. I've gained so much clarity.",
       name: "Divya Agarwal",
       role: "Counselor",
-      image: "public/assets/img/testimonial/2.svg",
+      image: "/assets/img/testimonial/2.svg",
     },
     {
       quote: "A must-have resource for anyone looking to advance their career.",
       name: "Anurag Kashyap",
       role: "Teacher",
-      image: "public/assets/img/testimonial/3.svg",
+      image: "/assets/img/testimonial/3.svg",
     },
     {
       quote: "The support and resources available are outstanding.",
       name: "Vanshika Sharma",
       role: "Student",
-      image: "public/assets/img/testimonial/4.svg",
+      image: "/assets/img/testimonial/4.svg",
     },
   ];
 
