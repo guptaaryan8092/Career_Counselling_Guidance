@@ -53,7 +53,7 @@ export default function Header() {
         <header className="shadow sticky z-50 top-0" style={{ transition: 'background-color 0.3s ease' }}>
             <nav className="border-gray-200 px-4 lg:px-6 py-0"
                 style={{
-                    background: `linear-gradient(90deg, rgba(144, 238, 144, ${navbarOpacity}), rgba(60, 179, 113, ${navbarOpacity}))`,
+                    background: `linear-gradient(90deg, rgba(0, 206, 209, ${navbarOpacity}), rgba(0, 105, 148, ${navbarOpacity}))`,
                     backdropFilter: `blur(${blurEffect}px)`,
                     transition: 'background 0.3s ease',
                 }}
