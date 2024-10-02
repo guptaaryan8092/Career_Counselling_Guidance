@@ -2,101 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faDiscord, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
-import Particles from "react-tsparticles";
 
 function Footer() {
-    const particlesOptions = {
-        background: {
-            color: {
-                value: "rgba(255, 255, 255, 0.5)", // Light background color for particles
-            },
-        },
-        particles: {
-            number: {
-                value: 100, // Number of particles
-                density: {
-                    enable: true,
-                    value_area: 800,
-                },
-            },
-            color: {
-                value: "#000", // Color of the particles
-            },
-            shape: {
-                type: "circle", // Shape of the particles
-            },
-            opacity: {
-                value: 0.5, // Opacity of the particles
-                random: false,
-                anim: {
-                    enable: false,
-                },
-            },
-            size: {
-                value: 3,
-                random: true,
-                anim: {
-                    enable: false,
-                },
-            },
-            move: {
-                enable: true,
-                speed: 2, // Speed of particle movement
-                direction: "none",
-                random: false,
-                straight: false,
-                out_mode: "out",
-                bounce: false,
-                attract: {
-                    enable: false,
-                },
-            },
-        },
-        interactivity: {
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "repulse",
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push",
-                },
-                resize: true,
-            },
-            modes: {
-                grab: {
-                    distance: 400,
-                    line_linked: {
-                        opacity: 1,
-                    },
-                },
-                bubble: {
-                    distance: 400,
-                    size: 40,
-                    duration: 2,
-                    opacity: 8,
-                    speed: 3,
-                },
-                repulse: {
-                    distance: 200,
-                    duration: 0.4,
-                },
-                push: {
-                    particles_nb: 4,
-                },
-                remove: {
-                    particles_nb: 2,
-                },
-            },
-        },
-        retina_detect: true,
-    };
-
+    
     return (
         <footer className="relative overflow-hidden">
-            {/* Particles Background */}
-            <Particles params={particlesOptions} className="absolute inset-0 z-0" />
             <div className="bg-gray-300 transition duration-300 ease-in-out relative z-10">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
