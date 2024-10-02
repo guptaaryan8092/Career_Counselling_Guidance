@@ -1,6 +1,8 @@
 // src/components/Card/EducationalCard.jsx
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookOpen, faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
 const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLink, bgColor }) => {
   return (
@@ -20,15 +22,17 @@ const EducationalCard = ({ imgSrc, heading, description, onReadMore, takeTestLin
           <button
             type="button"
             onClick={onReadMore}
-            className="rounded-sm bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="flex items-center rounded-sm bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           >
+            <FontAwesomeIcon icon={faBookOpen} className="mr-2" />
             Read More
           </button>
           <Link
             to={takeTestLink}
-            className="rounded-sm bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="flex items-center rounded-sm bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             style={{ textDecoration: 'none' }} // Ensure no underline
           >
+            <FontAwesomeIcon icon={faClipboardCheck} className="mr-2" />
             Take Test
           </Link>
         </div>
