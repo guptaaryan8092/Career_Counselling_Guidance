@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Mentorship() {
   return (
@@ -10,9 +11,11 @@ function Mentorship() {
           <p className="text-lg mb-6">
             Assigning personalized mentors to individuals in schools to make a successful career in the future.
           </p>
-          <button className="bg-white text-teal-600 font-semibold py-2 px-4 rounded-lg hover:bg-teal-100 transition duration-300">
-            Learn More
-          </button>
+          <Link to="#">
+            <button className="bg-white text-teal-600 font-semibold py-2 px-4 rounded-lg hover:bg-teal-100 transition duration-300">
+              Learn More
+            </button>
+          </Link>
         </div>
       </section>
 
