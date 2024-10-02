@@ -1,17 +1,23 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { FaUserGraduate, FaChalkboardTeacher, FaUserTie, FaQuoteLeft } from 'react-icons/fa';
 
 function TestimonialCard({ quote, name, role, image }) {
   return (
-    <div className="flex flex-col bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8 mx-4 transform transition-transform duration-300 hover:scale-105"> {/* Added hover scale effect */}
+    <div className="flex flex-col bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8 mx-4 transform transition-transform duration-300 hover:scale-105">
       <div className="flex flex-col items-center text-center">
-        <div className="w-28 h-28 overflow-hidden rounded-full mb-4 border-4 border-blue-500"> {/* Border added for emphasis */}
+        <div className="w-28 h-28 overflow-hidden rounded-full mb-4 border-4 border-blue-500">
           <img className="w-full h-full object-contain" src={image} alt={name} />
         </div>
         <div className="space-y-1">
-          <p className="text-lg font-semibold text-blue-600">{name}</p> {/* Changed text color */}
-          <p className="text-sm text-gray-500">{role}</p>
+          <p className="text-lg font-semibold text-blue-600">{name}</p>
+          <p className="text-sm text-gray-500 flex items-center justify-center">
+            {role === "Student" && <FaUserGraduate className="inline-block mr-2 text-blue-600" />}
+            {role === "Counselor" && <FaUserTie className="inline-block mr-2 text-blue-600" />}
+            {role === "Teacher" && <FaChalkboardTeacher className="inline-block mr-2 text-blue-600" />}
+            {role}
+          </p>
         </div>
       </div>
       <div className="mt-6">
@@ -30,8 +36,8 @@ function TestimonialCard({ quote, name, role, image }) {
             </svg>
           ))}
         </div>
-        <blockquote className="text-center text-lg leading-relaxed text-gray-800 italic"> {/* Italic for emphasis */}
-          {quote}
+        <blockquote className="text-center text-lg leading-relaxed text-gray-800 italic">
+          <FaQuoteLeft className="inline-block text-blue-600 mr-2" />{quote}
         </blockquote>
       </div>
     </div>
@@ -67,7 +73,7 @@ function Testimonials() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-r from-blue-600 to-blue-800 sm:py-16 lg:py-20"> {/* Gradient background for emphasis */}
+    <section className="py-12 bg-gradient-to-r from-blue-100 to-blue-400 sm:py-16 lg:py-20">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-white mb-6">What Our Users Say</h2>
         <div className="bg-white rounded-lg shadow-2xl p-6 relative overflow-hidden">
@@ -90,7 +96,7 @@ function Testimonials() {
               />
             ))}
           </Carousel>
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent opacity-50" /> {/* Blue gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent opacity-50" />
         </div>
       </div>
     </section>
