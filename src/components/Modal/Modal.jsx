@@ -4,10 +4,10 @@ const Modal = ({ isOpen, onClose, content }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4" onClick={onClose}>
       <div
-        className="bg-white rounded-lg shadow-lg p-6 relative max-w-lg w-full mx-4 mt-8" // Added margin-top here
-        onClick={(e) => e.stopPropagation()} // Prevents click event from bubbling up to the overlay
+        className="bg-white rounded-lg shadow-lg p-6 relative max-w-lg w-full"
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -23,7 +23,7 @@ const Modal = ({ isOpen, onClose, content }) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <div className="overflow-y-auto max-h-[calc(98vh-5rem)]">
+        <div className="overflow-y-auto max-h-[calc(98vh-9rem)]">
           {content}
         </div>
         <div className="mt-4 flex justify-center">
