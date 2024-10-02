@@ -30,6 +30,9 @@ function Footer() {
                                         <Link to="/mentorship" className="hover:text-green-500 transition duration-300 ease-in-out no-underline">Mentorship</Link>
                                     </li>
                                     <li className="mb-4">
+                                        <Link to="/virtual-learning" className="hover:text-green-500 transition duration-300 ease-in-out no-underline">Virtual Learning</Link>
+                                    </li>
+                                    <li className="mb-4">
                                         <Link to="/contact" className="hover:text-green-500 transition duration-300 ease-in-out no-underline">Contact Us</Link>
                                     </li>
                                 </ul>

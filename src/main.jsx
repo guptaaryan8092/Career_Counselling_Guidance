@@ -1,7 +1,7 @@
 import React from 'react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+ import './index.css'
 import { createBrowserRouter, createRoutesFromElements, RouterProvider , Route } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from './components/Home/Home.jsx'
@@ -13,6 +13,7 @@ import Roadmap from './components/Roadmap/Roadmap.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Recreation from './components/Recreation/Recreation.jsx'
 import Login  from './components/Account/Login.jsx'
+import VirtualLearning from './components/Mentorship/VirtualLearning/VirtualLearning.jsx'
 
 // Create the router
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path='recreation' element ={<Recreation/>}/>
       <Route path='contact' element ={<Contact/>}/>
       <Route path='login' element ={<Login/>}/>
+      <Route path='virtual-learning' element ={<VirtualLearning/>}/>
     </Route>
   )
 );
