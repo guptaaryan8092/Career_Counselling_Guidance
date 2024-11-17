@@ -1,0 +1,41 @@
+/* BackToTopButton.css */
+.back-to-top {
+    display: inline-block;
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button, same as width to make it circular */
+    border-radius: 50%; /* Makes the button circular */
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    z-index: 9000;
+    font-size: 20px; /* Increase font size for better visibility */
+    padding: 0; /* Remove any default padding */
+    background-color: #009cff; /* Button background color */
+    color: #fff; /* Icon color */
+    border: none; /* Remove border */
+    text-align: center;
+    line-height: 50px; /* Vertically center the icon */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    cursor: pointer; /* Add a pointer cursor */
+    display: flex; /* Use flex to center the icon */
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+  }
+  
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .back-to-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .back-to-top:hover {
+    background-color: #007bbd; /* Darken the background color on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+  }
+  
