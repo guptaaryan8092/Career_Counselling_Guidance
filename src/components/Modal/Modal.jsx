@@ -1,3 +1,5 @@
+// Used in CardContainer
+
 import React from 'react';
 
 const Modal = ({ isOpen, onClose, content }) => {
